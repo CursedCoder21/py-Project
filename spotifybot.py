@@ -60,7 +60,7 @@ async def play(ctx, query):
 
     # Check if voice client exists and is connected
     if not voice_client or not voice_client.is_connected():
-        await ctx.send('Bot is not connected to a voice channel.')
+        await ctx.send('Bot is not connected to a voice channel. Please join a voice channel and try again.')
         return
 
     # Search for the song using Spotipy
@@ -86,6 +86,7 @@ async def play(ctx, query):
 
     # Confirm song playback
     await ctx.send(f'Playing: {track["name"]}')
+
 
 @bot.command()
 async def leave(ctx):
